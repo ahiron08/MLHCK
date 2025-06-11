@@ -91,7 +91,7 @@ def analyze_scan(image_path, scan_type):
             img_array = tf.keras.preprocessing.image.img_to_array(resized_img) / 255.0
             img_array = tf.image.resize(img_array, [50, 50])
             img_array = np.expand_dims(img_array, axis=0)
-            model = tf.keras.models.load_model("OCT_model.keras")
+            model = tf.keras.models.load_model("models/OCT_model.keras")
             all_labels = ["Normal", "Drusen", "Diabetic Macular Edema", "Choroidal Neovascularization"]
             y_pred = model.predict(img_array)
             result = all_labels[np.argmax(y_pred)]
@@ -110,7 +110,7 @@ def analyze_scan(image_path, scan_type):
             img_array = tf.keras.preprocessing.image.img_to_array(resized_img) / 255.0
             img_array = tf.image.resize(img_array, [50, 50])
             img_array = np.expand_dims(img_array, axis=0)
-            model = tf.keras.models.load_model("MRI_model.h5")
+            model = tf.keras.models.load_model("models/MRI_model.h5")
             all_labels = ["Healthy", "Meningioma", "Pituitary", "Glioma"]
             y_pred = model.predict(img_array)
             result = all_labels[np.argmax(y_pred)]
@@ -123,7 +123,7 @@ def analyze_scan(image_path, scan_type):
             img_array = tf.keras.preprocessing.image.img_to_array(resized_img) / 255.0
             img_array = tf.image.resize(img_array, [50, 50])
             img_array = np.expand_dims(img_array, axis=0)
-            model = tf.keras.models.load_model("XR_model.h5")
+            model = tf.keras.models.load_model("models/XR_model.h5")
             all_labels = [
                 "Elbow Negative", "Finger Negative", "Forearm Negative", "Hand Negative", "Shoulder Negative",
                 "Elbow Positive", "Finger Positive", "Forearm Positive", "Hand Positive", "Shoulder Positive"
